@@ -121,6 +121,8 @@ or
 Persona.CAMPAIGNS.loadAd(CAMPAIGN_PLACEMENT_ID, adLoadListener);
 
 ```
+Ensure that ad is loaded in *onLoaded()* method of SimpleAdListener or check it manually with *Persona.CAMPAIGNS.isReady();*
+
 If ad is loaded and ready to show - there are several options to show ad:
 ```
 Persona.CAMPAIGNS.show();
@@ -148,3 +150,22 @@ Persona.APP_WALL
              .setPlacementId(APP_WALL_PLACEMENT_ID, adAppWallListener)
              .show(MainActivity.this);
 ```
+
+### 8. Dependencies & Requirements
+Minimal android sdk version should not be less than 15.
+
+```
+  defaultConfig {
+        minSdkVersion 15
+        ...
+    }
+```
+
+Persona SDK using play servies, so please ensure that you are using the same version:
+```
+compile 'com.google.android.gms:play-services-basement:10.2.1'
+```
+or add multidex support to your project
+
+### 9. Proguard
+Have no any rules, feel free to using of proguard.
